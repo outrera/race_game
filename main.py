@@ -9,6 +9,7 @@ class App:
         print("__init__")
         self._running = True
         self._display_surf = None
+        self._image_surf = None
         self.size = self.weight, self.height = 640, 400
 
     def on_init(self):
@@ -16,6 +17,8 @@ class App:
         pygame.init()
         self._display_surf = pygame.display.set_mode(self.size, pygame.HWSURFACE | pygame.DOUBLEBUF)
         self._running = True
+        self._image_surf = pygame.image.load("sources\police_car1.png").convert_alpha()
+        return True
 
     def on_event(self, event):
         print("on_event")
@@ -28,6 +31,8 @@ class App:
 
     def on_render(self):
         print("on_render")
+        self._display_surf.blit(self._image_surf, (0, 0))
+        pygame.display.flip()
         pass
 
     def on_cleanup(self):

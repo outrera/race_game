@@ -1,58 +1,107 @@
 import pygame
+from Shared.GameConstants import GameConstants
+from Levels.Level import Level
+from Car import Car
+from Background import Background
+from Scenes import *
 
-from pygame.locals import *
 
-
-class App:
+class Race:
 
     def __init__(self):
-        print("__init__")
-        self._running = True
-        self._display_surf = None
-        self._image_surf = None
-        self.size = self.weight, self.height = 640, 400
+        self.__lives = 3
+        self.__score = 0
 
-    def on_init(self):
-        print("on_init")
+        # self.__level = Level(self)  # create a new level pass the game to it
+        self.__car = Car((GameConstants.LANE2_X,
+                          # GameConstants.SCREEN_SIZE[1] - GameConstants.CAR_SIZE[1]),
+                          GameConstants.SCREEN_SIZE[1]/2),
+                         pygame.image.load(GameConstants.SPRITE_CAR))
+        self.__npcCars = []
+        self.__background = Background(pygame.image.load(GameConstants.SPRITE_BACKGROUND))
+
         pygame.init()
-        self._display_surf = pygame.display.set_mode(self.size, pygame.HWSURFACE | pygame.DOUBLEBUF)
-        self._running = True
-        self._image_surf = pygame.image.load("sources\police_car1.png").convert_alpha()
-        return True
+        pygame.mixer.init()
+        pygame.display.set_caption("Racing Game")
 
-    def on_event(self, event):
-        print("on_event")
-        if event.type == pygame.QUIT:
-            self._running = False
+        self.__clock = pygame.time.Clock()
 
-    def on_loop(self):
-        print("on_loop")
-        pass
+        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE,
+                                              pygame.DOUBLEBUF, 32)
 
-    def on_render(self):
-        print("on_render")
-        self._display_surf.blit(self._image_surf, (0, 0))
-        pygame.display.flip()
-        pass
+        pygame.mouse.set_visible(0)
 
-    def on_cleanup(self):
-        print("on_cleanup")
-        pygame.quit()
+        self.__scenes = (
+            PlayingGameScene(self),
+            GameOverScene(self),
+            HighScoreScene(self),
+            MenuScene(self)
+        )
 
-    def on_execute(self):
-        print("on_execute")
-        if not self.on_init():
-            self._running = False
+        self.__currentScene = 0
 
-        while self._running:
-            for event in pygame.event.get():
-                self.on_event(event)
-            self.on_loop()
-            self.on_render()
-            
-        self.on_cleanup()
+        self.__sounds = ()
+
+    def start(self):
+        while True:
+            self.__clock.tick(GameConstants.FPS)
+
+            self.screen.fill((0, 0, 0))  # TODO: change this background
+
+            currentScene = self.__scenes[self.__currentScene]
+            currentScene.handleEvents(pygame.event.get())
+            currentScene.update()
+            currentScene.render()
+
+            pygame.display.update()
+
+    def changeScene(self, scene):
+        self.__currentScene = scene
+
+    def getFPS(self):
+        return self.__clock.get_fps()
+
+    # def getLevel(self):
+    #     return self.__level
+
+    def getScore(self):
+        return self.__score
+
+    def increaseScore(self, score):
+        self.__score += score
+
+    def getLives(self):
+        return self.__lives
+
+    def increaseLives(self):
+        self.__lives += 1
+
+    def reduceLives(self):
+        self.__lives -= 1
+
+    def getCar(self):
+        return self.__car
+
+    def getNpcCars(self):
+        return self.__npcCars
+
+    def getBackground(self):
+        return self.__background
+
+    def playsound(self, soundClip):
+        sound = self.__sounds[soundClip]
+        sound.stop()
+        sound.play()
+
+    def reset(self):
+        # resets the game to it's original state
+        self.__lives = 3
+        self.__score = 0
+        self.__car = Car((GameConstants.LANE2_X,
+                          # GameConstants.SCREEN_SIZE[1] - GameConstants.CAR_SIZE[1]),
+                          GameConstants.SCREEN_SIZE[1]/2),
+                         pygame.image.load(GameConstants.SPRITE_CAR))
+        self.__npcCars = []  # clear all cars from screen
 
 
-if __name__ == "__main__":
-    theApp = App()
-    theApp.on_execute()
+Race().start()

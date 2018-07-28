@@ -3,8 +3,8 @@ from Shared import *
 
 class NPCCar(GameObject):
 
-    def __init__(self, position, sprite, speed):
-        super(NPCCar, self).__init__(position, GameConstants.CAR_SIZE, sprite)
+    def __init__(self, position, sprite, size, speed):
+        super(NPCCar, self).__init__(position, size, sprite)
         self.__speed = (0, speed[1])
 
     def update(self):
@@ -17,4 +17,5 @@ class NPCCar(GameObject):
 
     def setSpeed(self, speed):
         self.__speed = speed
+
 

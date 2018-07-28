@@ -9,25 +9,24 @@ from Scenes import *
 class Race:
 
     def __init__(self):
+        pygame.init()
+        pygame.mixer.init()
+        pygame.display.set_caption("Racing Game")
+        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE,
+                                              pygame.DOUBLEBUF, 32)
         self.__lives = 3
         self.__score = 0
 
         # self.__level = Level(self)  # create a new level pass the game to it
         self.__car = Car((GameConstants.LANE2_X,
                           # GameConstants.SCREEN_SIZE[1] - GameConstants.CAR_SIZE[1]),
-                          GameConstants.SCREEN_SIZE[1]/2),
-                         pygame.image.load(GameConstants.SPRITE_CAR))
+                          GameConstants.SCREEN_SIZE[1] / 2),
+                         pygame.image.load(GameConstants.VEHICLES["SPRITE_CAR_BLUE1"]).convert_alpha())
         self.__npcCars = []
-        self.__background = Background(pygame.image.load(GameConstants.SPRITE_BACKGROUND))
-
-        pygame.init()
-        pygame.mixer.init()
-        pygame.display.set_caption("Racing Game")
+        self.__offRoadsObstacles = []
+        self.__background = Background(pygame.image.load(GameConstants.SPRITE_BACKGROUND).convert_alpha())
 
         self.__clock = pygame.time.Clock()
-
-        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE,
-                                              pygame.DOUBLEBUF, 32)
 
         pygame.mouse.set_visible(0)
 
@@ -85,6 +84,9 @@ class Race:
     def getNpcCars(self):
         return self.__npcCars
 
+    def getOffRoadObstacles(self):
+        return self.__offRoadsObstacles
+
     def getBackground(self):
         return self.__background
 
@@ -99,9 +101,16 @@ class Race:
         self.__score = 0
         self.__car = Car((GameConstants.LANE2_X,
                           # GameConstants.SCREEN_SIZE[1] - GameConstants.CAR_SIZE[1]),
-                          GameConstants.SCREEN_SIZE[1]/2),
-                         pygame.image.load(GameConstants.SPRITE_CAR))
+                          GameConstants.SCREEN_SIZE[1] / 2),
+                         pygame.image.load(GameConstants.VEHICLES["SPRITE_CAR_BLUE1"])).convert_alpha()
         self.__npcCars = []  # clear all cars from screen
 
 
-Race().start()
+import cProfile as profile
+
+
+def main():
+    Race().start()
+
+
+profile.run('main()')

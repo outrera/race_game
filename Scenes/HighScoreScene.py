@@ -13,7 +13,7 @@ class HighScoreScene(Scene):
         # self.__highScoreSprite = pygame.transform.smoothscale(sprite,
         #                                                       (int(GameConstants.SCREEN_SIZE[0]/4),
         #                                                        int(GameConstants.SCREEN_SIZE[1]/4)))
-        self.__highScoreSprite = pygame.image.load(GameConstants.SPRITE_HIGH_SCORE)
+        self.__highScoreSprite = pygame.image.load(GameConstants.SPRITE_HIGH_SCORE).convert_alpha()
 
     def render(self):
         self.getGame().screen.blit(self.__highScoreSprite, (50, 50))

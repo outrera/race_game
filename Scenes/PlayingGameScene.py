@@ -1,9 +1,27 @@
 import random
 
 import pygame
-from NPCCar import NPCCar
+from NPCVehicle import NPCCar
 from Scenes import Scene
 from Shared import GameConstants
+
+
+def getObjectSize(string):
+    if "bus" in string:
+        return GameConstants.BUS_SIZE
+    if "truck" in string:
+        if "long" in string:
+            return GameConstants.TRUCK_LONG_SIZE
+        if "medium" in string:
+            return GameConstants.TRUCK_MEDIUM_SIZE
+    if "car" in string:
+        return GameConstants.CAR_SIZE
+    if "tree" in string:
+        return GameConstants.TREE_SIZE
+    if "bush" in string:
+        return GameConstants.BUSH_SIZE
+    if "house" in string:
+        return random.choice(GameConstants.HOUSE_SIZE)
 
 
 class PlayingGameScene(Scene):
@@ -27,20 +45,28 @@ class PlayingGameScene(Scene):
         car = game.getCar()
         car.update()
         npcCars = game.getNpcCars()
+        offRoadObjs = game.getOffRoadObstacles()
 
         npcCars[:] = [tup for tup in npcCars if self.isOnScreen(tup)]  # remove all none visible cars
+        offRoadObjs[:] = [tup for tup in offRoadObjs if self.isOnScreen(tup)]  # remove all none visible cars
 
         for npcCar in npcCars:
             npcCar.update()
-
-        for npcCar in npcCars:
             if car.intersects(npcCar):
                 # TODO: add crash sound
                 # game.playSound(car.getHitSound())
                 game.reduceLives()
                 car.hit()
 
-        self.addCar()
+        for offRoadObj in offRoadObjs:
+            offRoadObj.update()
+            if car.intersects(offRoadObj):
+                # TODO: add crash sound
+                game.reduceLives()
+                car.hit()
+
+        self.addNpcVehicles()
+        self.addOffRoadObstacles()
 
         # mouse_pos = pygame.mouse.get_pos()
         # car.setPosition((mouse_pos[0], car.getPosition()[1]))
@@ -53,17 +79,23 @@ class PlayingGameScene(Scene):
         game.screen.blit(background.getSprite(), background.getPosition2())
 
         npcCars = game.getNpcCars()
+        offRoadObjs = game.getOffRoadObstacles()
+
         for NPCCar in npcCars:
             if self.isOnScreen(NPCCar):
                 game.screen.blit(NPCCar.getSprite(), NPCCar.getPosition())
+
+        for offRoadObj in offRoadObjs:
+            if self.isOnScreen(offRoadObj):
+                game.screen.blit(offRoadObj.getSprite(), offRoadObj.getPosition())
 
         car = game.getCar()
         if car.toRender():
             game.screen.blit(car.getSprite(), car.getPosition())
 
         self.clearText()
-        self.addText("Score: " + str(int(game.getScore())), x=0, y=0, size=50)
-        self.addText("Lives: " + str(int(game.getLives())), x=0, y=30, size=50)
+        # # self.addText("Score: " + str(int(game.getScore())), x=0, y=0, size=50)
+        # # self.addText("Lives: " + str(int(game.getLives())), x=0, y=30, size=50)
         self.addText("FPS: " + str(int(game.getFPS())), x=0, y=GameConstants.SCREEN_SIZE[1] - 30, size=30)
 
         super(PlayingGameScene, self).render()
@@ -104,7 +136,7 @@ class PlayingGameScene(Scene):
         car.setSpeed((speedx, speedy))
         return
 
-    def addCar(self):
+    def addNpcVehicles(self):
         npcCars = self.getGame().getNpcCars()
 
         if len(npcCars) >= 8:
@@ -112,17 +144,9 @@ class PlayingGameScene(Scene):
 
         transform = random.getrandbits(1)  # if 1 car drives down, else car drives up
 
-        rnd_sprite = random.choice([GameConstants.SPRITE_CAR_BLACK1,
-                                    GameConstants.SPRITE_CAR_POLICE1,
-                                    GameConstants.SPRITE_CAR_POLICE2,
-                                    GameConstants.SPRITE_CAR_POLICE3,
-                                    GameConstants.SPRITE_CAR_TAXI1,
-                                    GameConstants.SPRITE_CAR_WHITE1,
-                                    GameConstants.SPRITE_CAR_WHITE2,
-                                    GameConstants.SPRITE_CAR_WHITE3,
-                                    GameConstants.SPRITE_CAR_WHITE4,
-                                    GameConstants.SPRITE_TRUCK_RED1])
-        if "police" in rnd_sprite:
+        rnd_sprite_string = random.choice(list(GameConstants.VEHICLES.values()))
+
+        if "police" in rnd_sprite_string:
             if self.__numberOfPoliceCars > 1:
                 return
             else:
@@ -130,33 +154,64 @@ class PlayingGameScene(Scene):
         else:
             isPolice = False
 
-        sprite = pygame.image.load(rnd_sprite)
+        sprite = pygame.image.load(rnd_sprite_string).convert_alpha()
+        size = getObjectSize(rnd_sprite_string)
 
         if transform:
-            # place car in right lanes, facing down
+            # place car in left lanes, facing down
             sprite = pygame.transform.flip(sprite, True, True)
-            # positionx = random.choice([200, 300]) + GameConstants.CAR_SIZE[0] / 4
             positionx = random.choice([GameConstants.LANE0_X, GameConstants.LANE1_X])
-            speed = (0, GameConstants.CAR_SPEED_NPC[1])
+            speed = (0, int(GameConstants.CAR_SPEED_NPC[1]*2))
 
         else:
-            # place car in left lan
-            # positionx = random.choice([400, 500]) + GameConstants.CAR_SIZE[0] / 4
+            # place car in right lan
             positionx = random.choice([GameConstants.LANE2_X, GameConstants.LANE3_X])
-            speed = (0, GameConstants.CAR_SPEED_NPC[1]/2)
+            speed = (0, GameConstants.CAR_SPEED_NPC[1])
 
-        position = (positionx, -GameConstants.CAR_SIZE[1])  # y position is out of screen
-        # position = (positionx, 1)  # y position is out of screen
+        position = (positionx, -size[1])  # y position is out of screen
 
         for npcCar in npcCars:
-            if abs(npcCar.getPosition()[0] - positionx) < 200 and abs(npcCar.getPosition()[1] - position[1]) < 2.5 * GameConstants.CAR_SIZE[1]:
+            conditionX = abs(npcCar.getPosition()[0] - positionx) < GameConstants.LANE_SIZE * 2
+            conditionY = abs(npcCar.getPosition()[1] - position[1]) < 3 * max(size[1], GameConstants.CAR_SIZE[1])
+            if conditionX and conditionY:
                 return
 
-        npcCars.append(NPCCar(position, sprite, speed))
+        npcCars.append(NPCCar(position, sprite, size, speed))
         if isPolice:
             self.__numberOfPoliceCars += 1
 
         print("NPC Cars: {}".format(len(npcCars)))
+
+    def addOffRoadObstacles(self):
+        offRoadObstacles = self.getGame().getOffRoadObstacles()
+
+        if len(offRoadObstacles) >= 16:
+            return
+
+        rnd_sprite_string = random.choice(list(GameConstants.OFF_ROAD_OBSTACLES.values()))
+
+        sprite = pygame.image.load(rnd_sprite_string).convert_alpha()
+        size = getObjectSize(rnd_sprite_string)
+
+        left_grass = random.getrandbits(1)
+
+        if left_grass:
+            positionx = random.randint(0, int(GameConstants.LANE0_X - size[0]))
+        else:
+            positionx = random.randint(int(GameConstants.LANE3_X + GameConstants.LANE_SIZE),
+                                       int(GameConstants.SCREEN_SIZE[0]-size[0]))
+
+        position = (positionx, -size[1])  # y position is out of screen
+
+        for obs in offRoadObstacles:
+            conditionX = abs(obs.getPosition()[0] - positionx) < int(GameConstants.LANE_SIZE)
+            conditionY = abs(obs.getPosition()[1] - position[1]) < 3 * max(size[1], GameConstants.CAR_SIZE[1])
+            if conditionX and conditionY:
+                return
+
+        offRoadObstacles.append(NPCCar(position, sprite, size, (0, int(GameConstants.CAR_SPEED[1]))))
+
+        print("Off Road obstacles: {}".format(len(offRoadObstacles)))
 
     def isOnScreen(self, car):
         position = car.getPosition()

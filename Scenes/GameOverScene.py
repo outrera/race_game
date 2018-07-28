@@ -10,7 +10,7 @@ class GameOverScene(Scene):
     def __init__(self, game):
         super(GameOverScene, self).__init__(game)
         self.__playerName = ""
-        sprite = pygame.image.load(GameConstants.SPRITE_CAR_CRASH)
+        sprite = pygame.image.load(GameConstants.SPRITE_CAR_CRASH).convert_alpha()
         self.__carCrashSprite = pygame.transform.smoothscale(sprite,
                                                              (int(GameConstants.SCREEN_SIZE[0] / 4),
                                                               int(GameConstants.SCREEN_SIZE[1] / 4)))

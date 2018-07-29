@@ -2,6 +2,12 @@ import os
 
 
 class GameConstants:
+
+    def __init__(self):
+        # load all graphic resources once
+
+        pass
+
     SCREEN_SIZE = (800, 600)
     FPS = 60
 
@@ -74,6 +80,7 @@ class GameConstants:
 
     SPRITE_MENU = os.path.join("Assets", "Graphics", "menu_background.png")
     SPRITE_BACKGROUND = os.path.join("Assets", "Graphics", "four_lanes_road.png")
+    SPRITE_ROAD_MARKING = os.path.join("Assets", "Graphics", "road_surface_marking.png")
     SPRITE_CAR_CRASH = os.path.join("Assets", "Graphics", "car_crash.png")
     SPRITE_HIGH_SCORE = os.path.join("Assets", "Graphics", "trophy.png")
 

@@ -12,6 +12,9 @@ class Scene:
             if event.type == pygame.QUIT:
                 exit()
 
+    def clear(self):
+        pass
+
     def update(self):
         pass
 

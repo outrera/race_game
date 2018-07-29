@@ -3,6 +3,7 @@ from Shared.GameConstants import GameConstants
 from Levels.Level import Level
 from Car import Car
 from Background import Background
+from RoadMarkings import RoadMarking
 from Scenes import *
 
 
@@ -14,6 +15,9 @@ class Race:
         pygame.display.set_caption("Racing Game")
         self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE,
                                               pygame.DOUBLEBUF, 32)
+
+        self.__dirtyRects = []
+
         self.__lives = 3
         self.__score = 0
 
@@ -24,8 +28,8 @@ class Race:
                          pygame.image.load(GameConstants.VEHICLES["SPRITE_CAR_BLUE1"]).convert_alpha())
         self.__npcCars = []
         self.__offRoadsObstacles = []
-        self.__background = Background(pygame.image.load(GameConstants.SPRITE_BACKGROUND).convert_alpha())
-
+        # self.__background = Background(pygame.image.load(GameConstants.SPRITE_BACKGROUND).convert_alpha())
+        self.__roadMarkings = RoadMarking(pygame.image.load(GameConstants.SPRITE_ROAD_MARKING).convert_alpha())
         self.__clock = pygame.time.Clock()
 
         pygame.mouse.set_visible(0)
@@ -45,14 +49,20 @@ class Race:
         while True:
             self.__clock.tick(GameConstants.FPS)
 
-            self.screen.fill((0, 0, 0))  # TODO: change this background
+            # self.screen.fill((0, 0, 0))  # TODO: change this background
 
             currentScene = self.__scenes[self.__currentScene]
             currentScene.handleEvents(pygame.event.get())
+            currentScene.clear()
             currentScene.update()
             currentScene.render()
 
-            pygame.display.update()
+            pygame.display.update(self.__dirtyRects)
+            self.__dirtyRects = []  # clear the dirty rects list
+            # pygame.display.flip()
+
+    def addDirtyRect(self, rect):
+        self.__dirtyRects.append(rect)
 
     def changeScene(self, scene):
         self.__currentScene = scene
@@ -87,8 +97,11 @@ class Race:
     def getOffRoadObstacles(self):
         return self.__offRoadsObstacles
 
-    def getBackground(self):
-        return self.__background
+    # def getBackground(self):
+    #     return self.__background
+
+    def getRoadSurfaceMarking(self):
+        return self.__roadMarkings
 
     def playsound(self, soundClip):
         sound = self.__sounds[soundClip]

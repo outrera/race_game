@@ -2,44 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7849c09c-65b9-4488-afdb-b5dd49dd62e4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bus_yellow1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bush1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bush2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bush3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bush4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bush5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bush6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/car_blue1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/car_blue2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/car_brown1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/car_brown2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/car_green1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/car_green2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/house2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/house3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/house5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/house6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/house7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/logo_car_crash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/tree7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/truck_long1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/truck_long2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/truck_medium1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RoadMarkings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/truck_red1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/truck_medium2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NPCCar.py" beforeDir="false" afterPath="$PROJECT_DIR$/NPCVehicle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/GameOverScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GameOverScene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/HighScoreScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/HighScoreScene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/MenuScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/MenuScene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/four_lanes_road.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/four_lanes_road.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/PlayingGameScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/PlayingGameScene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Scene.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/GameConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/GameConstants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscore.dat" beforeDir="false" afterPath="$PROJECT_DIR$/highscore.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/GameObject.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/GameObject.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +23,8 @@
       <file leaf-file-name="Car.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Car.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="849">
-              <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+            <state relative-caret-position="79">
+              <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -63,8 +32,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="104" column="101" selection-start-line="104" selection-start-column="101" selection-end-line="104" selection-end-column="101" />
+            <state relative-caret-position="176">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -72,23 +41,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Background.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Background.py">
+      <file leaf-file-name="GameObject.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Shared/GameObject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="56">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayingGameScene.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RoadMarkings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RoadMarkings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayingGameScene.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scenes/PlayingGameScene.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+            <state relative-caret-position="245">
+              <caret line="150" column="30" lean-forward="true" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
               <folding>
-                <element signature="e#851#2058#0" />
-                <element signature="e#751#856#0" />
                 <element signature="e#1467#1503#0" />
                 <element signature="e#2785#3704#0" />
                 <element signature="e#2834#3442#0" />
@@ -105,7 +84,7 @@
       <file leaf-file-name="MenuScene.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scenes/MenuScene.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="176">
               <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -117,20 +96,11 @@
       <file leaf-file-name="GameOverScene.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scenes/GameOverScene.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+            <state relative-caret-position="35">
+              <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NPCVehicle.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NPCVehicle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -147,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameConstants.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameConstants.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Shared/GameConstants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="74" column="69" selection-start-line="74" selection-start-column="69" selection-end-line="74" selection-end-column="69" />
+            <state relative-caret-position="132">
+              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -159,8 +129,8 @@
       <file leaf-file-name="Scene.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scenes/Scene.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            <state relative-caret-position="198">
+              <caret line="15" column="12" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -191,8 +161,9 @@
       <find>pygame</find>
       <find>load</find>
       <find>image.load(</find>
-      <find>FFF</find>
       <find>convert</find>
+      <find>fill</find>
+      <find>FFF</find>
     </findStrings>
     <replaceStrings>
       <replace>:</replace>
@@ -210,11 +181,9 @@
         <option value="$PROJECT_DIR$/Shared/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/Levels/Level.py" />
-        <option value="$PROJECT_DIR$/Shared/GameObject.py" />
         <option value="$PROJECT_DIR$/Scenes/__init__.py" />
         <option value="$PROJECT_DIR$/Background.py" />
         <option value="$PROJECT_DIR$/CarNPC.py" />
-        <option value="$PROJECT_DIR$/Scenes/Scene.py" />
         <option value="$PROJECT_DIR$/Car.py" />
         <option value="$PROJECT_DIR$/HighScore.py" />
         <option value="$PROJECT_DIR$/highscore.dat" />
@@ -223,12 +192,15 @@
         <option value="$PROJECT_DIR$/NPCTruckLong.py" />
         <option value="$PROJECT_DIR$/NPCTruckMedium.py" />
         <option value="$PROJECT_DIR$/NPCVehicle.py" />
-        <option value="$PROJECT_DIR$/Shared/GameConstants.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Scenes/GameOverScene.py" />
         <option value="$PROJECT_DIR$/Scenes/HighScoreScene.py" />
         <option value="$PROJECT_DIR$/Scenes/MenuScene.py" />
+        <option value="$PROJECT_DIR$/Shared/GameObject.py" />
+        <option value="$PROJECT_DIR$/Scenes/Scene.py" />
+        <option value="$PROJECT_DIR$/RoadMarkings.py" />
         <option value="$PROJECT_DIR$/Scenes/PlayingGameScene.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Shared/GameConstants.py" />
       </list>
     </option>
   </component>
@@ -262,7 +234,7 @@
             <path>
               <item name="race_game" type="b2602c69:ProjectViewProjectNode" />
               <item name="race_game" type="462c0819:PsiDirectoryNode" />
-              <item name="Scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="Shared" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -359,7 +331,7 @@
     <frame x="61" y="-7" width="1482" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" weight="0.5" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.166782" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32823366" />
@@ -410,6 +382,11 @@
           <line>28</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Scenes/PlayingGameScene.py</url>
+          <line>150</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -418,11 +395,21 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>roadMarking.getPositionLeftLaneUpper()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>roadMarking.getPositionLeftLane()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>GameConstants.LANE3_X + GameConstants.LANE_SIZE</expression-string>
         <language-id>Python</language-id>
@@ -436,27 +423,11 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Background.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/GameObject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scenes/PlayingGameScene.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1760">
           <caret line="80" column="14" lean-forward="true" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
           <folding>
-            <element signature="e#851#2058#0" />
-            <element signature="e#751#856#0" />
             <element signature="e#1467#1503#0" />
             <element signature="e#2785#3704#0" />
             <element signature="e#2834#3442#0" />
@@ -751,65 +722,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/GameObject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="37" column="84" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="194" selection-start-line="194" selection-end-line="194" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Background.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Car.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="849">
-          <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shared/GameConstants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="74" column="69" selection-start-line="74" selection-start-column="69" selection-end-line="74" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scenes/Scene.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="104" column="101" selection-start-line="104" selection-start-column="101" selection-end-line="104" selection-end-column="101" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scenes/GameOverScene.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,8 +741,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scenes/MenuScene.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
+        <state relative-caret-position="176">
           <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Background.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="7" column="13" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Car.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-313951340/pygame/display.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scenes/GameOverScene.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scenes/Scene.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shared/GameObject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RoadMarkings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -835,11 +806,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scenes/PlayingGameScene.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="245">
+          <caret line="150" column="30" lean-forward="true" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
           <folding>
-            <element signature="e#851#2058#0" />
-            <element signature="e#751#856#0" />
             <element signature="e#1467#1503#0" />
             <element signature="e#2785#3704#0" />
             <element signature="e#2834#3442#0" />
@@ -849,6 +818,23 @@
             <element signature="e#4144#4250#0" />
             <element signature="e#5581#5760#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shared/GameConstants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
         </state>
       </provider>
     </entry>

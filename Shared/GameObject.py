@@ -20,6 +20,9 @@ class GameObject:
     def getSprite(self):
         return self.__sprite
 
+    def getRect(self):
+        return pygame.Rect(self.getPosition(), self.getSize())
+
     def __intersectsY(self, other):
         otherPosition = other.getPosition()
         otherSize = other.getSize()
